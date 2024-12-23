@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.menu-item');
     const activeIndicator = document.querySelector('.active-indicator');
     const contentContainers = document.querySelectorAll('.content-container');
-
     function updateIndicator() {
         const activeItem = document.querySelector('.menu-item.active');
         if (activeItem) {
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             activeIndicator.style.width = `${offsetWidth}px`;
         }
     }
-
     function updateContent(targetId) {
         contentContainers.forEach(container => {
             if (container.id === targetId) {
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             const currentActive = document.querySelector('.menu-item.active');
@@ -34,9 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateContent(item.getAttribute('data-target'));
         });
     });
-
     window.addEventListener('resize', updateIndicator);
-
     updateIndicator();
     updateContent(document.querySelector('.menu-item.active').getAttribute('data-target'));
 });
